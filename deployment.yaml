@@ -19,11 +19,18 @@ spec:
   template:
     metadata:
       labels:
-        app: fastapi   
+        app: fastapi
     spec:
+      volumes:
+        - name: sec-vol
+          secret:
+            secretname: accesstoken
       containers:
         - name: pypod
           image: localhost:5001/firstimage:1.0
+          volumeMounts:
+            - name: sec-vol
+              mountPath: "/secret/"
           env:
             - name: MY_NODE_NAME
               valueFrom:
