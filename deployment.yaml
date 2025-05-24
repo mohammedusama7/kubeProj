@@ -24,7 +24,7 @@ spec:
       volumes:
         - name: sec-vol
           secret:
-            secretname: accesstoken
+            secretName: accesstoken
       containers:
         - name: pypod
           image: localhost:5001/firstimage:1.0
