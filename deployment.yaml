@@ -35,7 +35,7 @@ spec:
             - name: Creds
               valueFrom:
                 secretKeyRef:
-                  name: env-Secret
+                  name: env-secret
                   key: cred
             - name: MY_NODE_NAME
               valueFrom:
