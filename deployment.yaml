@@ -27,7 +27,7 @@ spec:
             secretName: accesstoken
       containers:
         - name: pypod
-          image: localhost:5001/py-app:1.0
+          image: localhost:5001/py-app:1.1
           volumeMounts:
             - name: sec-vol
               mountPath: "/secret/"
