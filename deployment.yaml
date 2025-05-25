@@ -4,7 +4,7 @@ metadata:
   name: py-app
 ---
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: fastapiv1
   labels:
@@ -27,11 +27,16 @@ spec:
             secretName: accesstoken
       containers:
         - name: pypod
-          image: localhost:5001/firstimage:1.0
+          image: localhost:5001/py-app:1.0
           volumeMounts:
             - name: sec-vol
               mountPath: "/secret/"
           env:
+            - name: Creds
+              valueFrom:
+                secretKeyRef:
+                  name: env-Secret
+                  key: cred
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
