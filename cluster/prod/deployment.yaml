@@ -29,7 +29,7 @@ spec:
             claimName: claim1
       containers:
         - name: pypod
-          image: localhost:5001/py-app:1.2
+          image: localhost:5001/py-app:1.4
           volumeMounts:
             - name: sec-vol
               mountPath: "/secret/"
