@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: claim1
   namespace: py-app
+  labels:
+    app: fastapi
 spec:
   accessModes:
     - ReadWriteOnce

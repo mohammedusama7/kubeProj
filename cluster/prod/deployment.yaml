@@ -34,7 +34,7 @@ spec:
             - name: sec-vol
               mountPath: "/secret/"
             - name: hostmount
-              mountPath: "/file"
+              mountPath: /file
           env:
             - name: Creds
               valueFrom:
