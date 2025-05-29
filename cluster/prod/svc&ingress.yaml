@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-fastapiv1
+  namespace: py-app
+spec:
+  selector:
+    app: fastapi
+  ports:
+  - port: 8080
+    targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fastapi-ingress
+  namespace: py-app
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: svc-fastapiv1
+            port:
+              number: 8080
