@@ -25,7 +25,7 @@ spec:
           secret:
             secretName: accesstoken
         - name: hostmount   
-          PersistentVolumeClaim:
+          persistentVolumeClaim:
             claimName: claim1
       containers:
         - name: pypod
