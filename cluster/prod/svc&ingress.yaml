@@ -17,13 +17,19 @@ metadata:
   name: fastapi-ingress
   namespace: py-app
 spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - dev.local
+    secretName: py-app-tls
   rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: svc-fastapiv1
-            port:
-              number: 8080
+  - host: "dev.local"
+    http:
+        paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: svc-fastapiv1
+              port:
+                number: 8080
